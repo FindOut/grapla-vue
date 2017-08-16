@@ -3,7 +3,9 @@
     <header></header>
     <section id="app-sections">
       <section id="app-section-left"></section>
-      <section id="app-section-center"></section>
+      <section id="app-section-center">
+        <grapla></grapla>
+      </section>
       <section id="app-section-right"></section>
     </section>
     <footer></footer>
@@ -11,8 +13,14 @@
 </template>
 
 <script>
+
+import grapla from './grapla/components/Grapla.vue'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    grapla
+  }
 }
 </script>
 
