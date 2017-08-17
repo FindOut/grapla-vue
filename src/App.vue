@@ -13,7 +13,6 @@
 </template>
 
 <script>
-
 import grapla from './grapla/components/Grapla.vue'
 import {mapState} from 'vuex'
 
@@ -31,6 +30,9 @@ export default {
 </script>
 
 <style lang="scss">
+* {
+  font-family: monospace;
+}
 body {
   margin: 0;
   padding: 0;
@@ -53,6 +55,7 @@ header, footer, section {
 }
 header, footer, #app-section-left, #app-section-right {
   flex-basis: 100px;
+  flex-shrink: 0;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 header {
