@@ -15,9 +15,15 @@
 <script>
 
 import grapla from './grapla/components/Grapla.vue'
+import {mapState} from 'Vuex'
 
 export default {
   name: 'app',
+  computed: {
+    ...mapState([
+      'grapla'
+    ])
+  },
   components: {
     grapla
   }
