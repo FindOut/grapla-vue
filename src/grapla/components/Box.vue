@@ -1,6 +1,11 @@
 <template>
   <div class="grapla-box">
     <p>{{data.text}}</p>
+    <box
+      v-for="box in data.children"
+      :data="box"
+      :key="box.id">
+    </box>
   </div>
 </template>
 
@@ -8,6 +13,11 @@
 export default {
   props: {
     data: Object
+  },
+  beforeCreate: function () {
+    // this solves the 'circular references between components' issue
+    // which is caused by using recursive components
+    this.$options.components.box = require('./Box.vue');
   }
 }
 </script>
@@ -20,6 +30,8 @@ export default {
   padding: 0 $grapla-spacing $grapla-spacing 0;
   box-shadow: 0 10px 35px rgba(0,0,0,0.1);
   background: white;
+  display: flex;
+  flex-direction: column;
 }
 p {
   margin: $grapla-spacing 0 0 $grapla-spacing;

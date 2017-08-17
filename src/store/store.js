@@ -38,13 +38,8 @@ const store = new Vuex.Store({
           children: []
         },
         {
-          id: 6,
-          text: "booooox",
-          children: []
-        },
-        {
           id: 7,
-          text: "booooox",
+          text: "boooooxes everywhere",
           children: []
         },
         {
@@ -77,7 +72,50 @@ const store = new Vuex.Store({
           id: 13,
           text: "booooox",
           children: []
-        }
+        },
+        {
+          id: 14,
+          text: "more boxes",
+          children: [
+            {
+              id: 15,
+              text: "and some",
+              children: []
+            },
+            {
+              id: 16,
+              text: "child boxes",
+              children: []
+            }
+          ]
+        },
+        {
+          id: 17,
+          text: "enough boxes for ya?",
+          children: [
+            {
+              id: 18,
+              text: "child boxes",
+              children: []
+            }
+          ]
+        },
+        {
+          id: 19,
+          text: "what's with you and boxes anyway?",
+          children: [
+            {
+              id: 20,
+              text: "should I",
+              children: []
+            },
+            {
+              id: 21,
+              text: "be worried?",
+              children: []
+            }
+          ]
+        },
       ],
       relationships: [
         {
