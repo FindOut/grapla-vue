@@ -7,65 +7,108 @@ const store = new Vuex.Store({
     grapla: {
       boxes: [
         {
-          text: "hello grapla"
+          id: 0,
+          text: "hello grapla",
           children: [
             {
-              text: "these"
+              id: 1,
+              text: "these",
               children: []
             },
             {
-              text: "are"
+              id: 2,
+              text: "are",
               children: []
             },
             {
-              text: "child"
+              id: 3,
+              text: "child",
               children: []
             },
             {
-              text: "boxes"
+              id: 4,
+              text: "boxes",
               children: []
             }
           ]
         },
         {
-          text: "booooox"
+          id: 5,
+          text: "booooox",
           children: []
         },
         {
-          text: "booooox"
+          id: 6,
+          text: "booooox",
           children: []
         },
         {
-          text: "booooox"
+          id: 7,
+          text: "booooox",
           children: []
         },
         {
-          text: "booooox"
+          id: 8,
+          text: "booooox",
           children: []
         },
         {
-          text: "booooox"
+          id: 9,
+          text: "booooox",
           children: []
         },
         {
-          text: "this is another box"
+          id: 10,
+          text: "this is another box",
           children: [
             {
-              text: "and some"
+              id: 11,
+              text: "and some",
               children: []
             },
             {
-              text: "child boxes"
+              id: 12,
+              text: "child boxes",
               children: []
             }
           ]
         },
         {
-          text: "booooox"
+          id: 13,
+          text: "booooox",
           children: []
         }
+      ],
+      relationships: [
+        {
+          from: 0,
+          to: 3,
+        },
+        {
+          from: 7,
+          to: 4,
+        },
+        {
+          from: 0,
+          to: 1,
+        },
+        {
+          from: 1,
+          to: 4,
+        },
+        {
+          from: 3,
+          to: 6,
+        },
+        {
+          from: 5,
+          to: 9,
+        },
+        {
+          from: 8,
+          to: 13,
+        },
       ]
-      relationships: []
     }
   },
   actions: {

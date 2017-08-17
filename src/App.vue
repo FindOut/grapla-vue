@@ -4,7 +4,7 @@
     <section id="app-sections">
       <section id="app-section-left"></section>
       <section id="app-section-center">
-        <grapla></grapla>
+        <grapla :data="grapla"></grapla>
       </section>
       <section id="app-section-right"></section>
     </section>
@@ -15,7 +15,7 @@
 <script>
 
 import grapla from './grapla/components/Grapla.vue'
-import {mapState} from 'Vuex'
+import {mapState} from 'vuex'
 
 export default {
   name: 'app',
