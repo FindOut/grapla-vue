@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <header></header>
+    <header>
+      <input type="button" value="randomize" v-on:click="createRandomGraplaData()">
+    </header>
     <section id="app-sections">
       <section id="app-section-left"></section>
       <section id="app-section-center">
@@ -15,6 +17,7 @@
 <script>
 import grapla from './grapla/components/Grapla.vue'
 import {mapState} from 'vuex'
+import store from './store/store'
 
 export default {
   name: 'app',
@@ -25,6 +28,11 @@ export default {
   },
   components: {
     grapla
+  },
+  methods: {
+    createRandomGraplaData() {
+      store.commit('createRandomGraplaData');
+    }
   }
 }
 </script>
@@ -60,6 +68,24 @@ header, footer, #app-section-left, #app-section-right {
 }
 header {
   z-index: 2;
+  text-align: right;
+  input {
+    background: #eee;
+    border: none;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin: 10px;
+    transition: 0.5s;
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      background: #333;
+      color: white;
+      transition: 0s;
+    }
+  }
 }
 #app-section-left {
   z-index: 1;
