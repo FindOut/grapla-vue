@@ -4,156 +4,59 @@ import Vuex from 'vuex'
 Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
-    grapla: {
-      boxes: [
-        {
-          id: 0,
-          text: "hello grapla",
-          children: [
-            {
-              id: 1,
-              text: "these",
-              children: []
-            },
-            {
-              id: 2,
-              text: "are",
-              children: []
-            },
-            {
-              id: 3,
-              text: "child",
-              children: []
-            },
-            {
-              id: 4,
-              text: "boxes",
-              children: []
-            }
-          ]
-        },
-        {
-          id: 5,
-          text: "booooox",
-          children: []
-        },
-        {
-          id: 7,
-          text: "boooooxes everywhere",
-          children: []
-        },
-        {
-          id: 8,
-          text: "booooox",
-          children: []
-        },
-        {
-          id: 9,
-          text: "booooox",
-          children: []
-        },
-        {
-          id: 10,
-          text: "this is another box",
-          children: [
-            {
-              id: 11,
-              text: "and some",
-              children: []
-            },
-            {
-              id: 12,
-              text: "child boxes",
-              children: []
-            }
-          ]
-        },
-        {
-          id: 13,
-          text: "booooox",
-          children: []
-        },
-        {
-          id: 14,
-          text: "more boxes",
-          children: [
-            {
-              id: 15,
-              text: "and some",
-              children: []
-            },
-            {
-              id: 16,
-              text: "child boxes",
-              children: []
-            }
-          ]
-        },
-        {
-          id: 17,
-          text: "enough boxes for ya?",
-          children: [
-            {
-              id: 18,
-              text: "child boxes",
-              children: []
-            }
-          ]
-        },
-        {
-          id: 19,
-          text: "what's with you and boxes anyway?",
-          children: [
-            {
-              id: 20,
-              text: "should I",
-              children: []
-            },
-            {
-              id: 21,
-              text: "be worried?",
-              children: []
-            }
-          ]
-        },
-      ],
-      relationships: [
-        {
-          from: 0,
-          to: 3,
-        },
-        {
-          from: 7,
-          to: 4,
-        },
-        {
-          from: 0,
-          to: 1,
-        },
-        {
-          from: 1,
-          to: 4,
-        },
-        {
-          from: 3,
-          to: 6,
-        },
-        {
-          from: 5,
-          to: 9,
-        },
-        {
-          from: 8,
-          to: 13,
-        },
-      ]
-    }
+    grapla: {}
   },
   actions: {
 
   },
   mutations: {
-
+    createRandomGraplaData(state) {
+      // empty data to begin with
+      state.grapla = {
+        boxes: [],
+        relationships: []
+      };
+      // possible text for boxes
+      var text = [
+        'hello grapla',
+        'booooox',
+        'boooooxes everywhere',
+        'this is another box',
+        'more boxes for you',
+        'box',
+        'enough boxes for ya?',
+        'really? more boxes?',
+        'ok fam whats with the boxes'
+      ];
+      // next box id
+      var id = 0;
+      // number of top level boxes
+      var boxCount = 20 + Math.floor(Math.random() * 21);
+      // populate with boxes
+      for (var i = 0; i < boxCount; i++) {
+        // create top level box
+        state.grapla.boxes.push({
+          id,
+          text: text[Math.floor(Math.random() * text.length)],
+          children: []
+        });
+        // increment id
+        id++;
+        // number of child boxes
+        var childBoxCount = Math.floor(Math.random() * 4);
+        // populate with child boxes
+        for (var ii = 0; ii < childBoxCount; ii++) {
+          // create child box
+          state.grapla.boxes[i].children.push({
+            id,
+            text: text[Math.floor(Math.random() * text.length)],
+            children: []
+          });
+          // increment id
+          id++;
+        }
+      }
+    }
   },
   getters: {
 
