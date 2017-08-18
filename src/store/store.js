@@ -56,6 +56,14 @@ const store = new Vuex.Store({
           id++;
         }
       }
+      // populate with relationships
+      for (var i = 0; i < id; i++) {
+        // create relationship
+        state.grapla.relationships.push({
+          from: Math.floor(Math.random() * id),
+          to: Math.floor(Math.random() * id)
+        });
+      }
     }
   },
   getters: {
