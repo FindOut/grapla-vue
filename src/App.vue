@@ -6,7 +6,13 @@
     <section id="app-sections">
       <section id="app-section-left"></section>
       <section id="app-section-center">
-        <grapla :data="grapla"></grapla>
+        <grapla>
+          <box
+            v-for="box in grapla.boxes"
+            :data="box"
+            :key="box.id">
+          </box>
+        </grapla>
       </section>
       <section id="app-section-right"></section>
     </section>
@@ -16,6 +22,7 @@
 
 <script>
 import grapla from './grapla/components/Grapla.vue'
+import box from './grapla/components/Box.vue'
 import {mapState} from 'vuex'
 import store from './store/store'
 
@@ -27,7 +34,8 @@ export default {
     ])
   },
   components: {
-    grapla
+    grapla,
+    box
   },
   methods: {
     createRandomGraplaData() {

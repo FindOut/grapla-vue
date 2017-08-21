@@ -1,6 +1,7 @@
 <template>
-  <div :class="['grapla-box', data.id.toString()]">
+  <div :class="['grapla-box', data.id + '']">
     <p>{{data.id}}. {{data.text}}</p>
+    <slot></slot>
     <box
       v-for="box in data.children"
       :data="box"

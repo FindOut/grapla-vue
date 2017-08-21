@@ -1,11 +1,14 @@
 <template>
-  <div class="grapla-relationship">
+  <path class="grapla-relationship">
 
-  </div>
+  </path>
 </template>
 
 <script>
 export default {
+  props: {
+    data: Object
+  }
 }
 </script>
 
