@@ -12,6 +12,12 @@
             :data="box"
             :key="box.id">
           </box>
+          <relationship
+            v-for="(relationship, index) in grapla.relationships"
+            :data="relationship"
+            :key="index"
+            slot="rels">
+          </relationship>
         </grapla>
       </section>
       <section id="app-section-right"></section>
@@ -23,6 +29,7 @@
 <script>
 import grapla from './grapla/components/Grapla.vue'
 import box from './grapla/components/Box.vue'
+import relationship from './grapla/components/Relationship.vue'
 import {mapState} from 'vuex'
 import store from './store/store'
 
@@ -35,7 +42,8 @@ export default {
   },
   components: {
     grapla,
-    box
+    box,
+    relationship
   },
   methods: {
     createRandomGraplaData() {

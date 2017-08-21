@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
     <svg>
-
+      <slot name="rels"></slot>
     </svg>
   </section>
 </template>
@@ -21,14 +21,12 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: scroll;
   #grapla-boxes {
     position: absolute;
-    width: calc(100% - #{$grapla-spacing});
-    height: calc(100% - #{$grapla-spacing});
+    padding: 0 $grapla-spacing $grapla-spacing 0;
     display: flex;
     flex-wrap: wrap;
-    overflow: scroll;
-    padding: 0 $grapla-spacing $grapla-spacing 0;
     background: #eee;
   }
   svg {
