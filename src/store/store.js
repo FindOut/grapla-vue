@@ -56,8 +56,10 @@ const store = new Vuex.Store({
           id++;
         }
       }
+      // number of relationships
+      var relationshipCount = 20 + Math.floor(Math.random() * 21);
       // populate with relationships
-      for (var i = 0; i < id; i++) {
+      for (var i = 0; i < relationshipCount; i++) {
         // create relationship
         state.grapla.relationships.push({
           from: Math.floor(Math.random() * id),

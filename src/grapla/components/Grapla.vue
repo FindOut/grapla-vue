@@ -3,7 +3,7 @@
     <div id="grapla-boxes">
       <slot></slot>
     </div>
-    <svg>
+    <svg v-if="showSvg">
       <slot name="rels"></slot>
     </svg>
   </section>
@@ -11,6 +11,29 @@
 
 <script>
 export default {
+  data: function () {
+    return {
+      showSvg: true
+    }
+  },
+  mounted() {
+    // select the target node
+    var target = document.querySelector('#grapla-boxes');
+    // reference to this
+    var self = this;
+    // create an observer instance
+    var observer = new MutationObserver(function(mutations) {
+      // force re-render
+      self.showSvg = false;
+      self.$nextTick(() => {
+        self.showSvg = true;
+      });
+    });
+    // configuration of the observer:
+    var config = { attributes: true, childList: true, characterData: true }
+    // pass in the target node, as well as the observer options
+    observer.observe(target, config);
+  }
 }
 </script>
 
