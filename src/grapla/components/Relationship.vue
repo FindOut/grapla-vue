@@ -5,6 +5,7 @@
 <script>
 import $ from 'jquery'
 import Vue from 'vue'
+import _ from 'lodash'
 
 export default {
   props: {
@@ -19,7 +20,7 @@ export default {
     // set relationship path
     this.setRelationshipPath();
     // set relationship path again after window resize
-    window.addEventListener('resize', this.setRelationshipPath);
+    window.addEventListener('resize', _.debounce(this.setRelationshipPath, 300));
   },
   methods: {
     setRelationshipPath() {
