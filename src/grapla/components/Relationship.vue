@@ -1,5 +1,5 @@
 <template>
-  <path class="grapla-relationship" :d="path"></path>
+  <path class="grapla-relationship" :d="path" marker-end='url(#grapla-relationship-arrow)'></path>
 </template>
 
 <script>
@@ -133,10 +133,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import "../style/vars.scss";
+
 .grapla-relationship {
   fill: none;
-  stroke: rgba(0, 199, 255, 0.5);
+  stroke: $grapla-relationship-color;
+  stroke-opacity: 0.5;
   stroke-width: 3;
   stroke-dasharray: 8,2;
   pointer-events: auto;
