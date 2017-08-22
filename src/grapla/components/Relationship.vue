@@ -143,10 +143,10 @@ export default {
   stroke-width: 3;
   stroke-dasharray: 8,2;
   pointer-events: auto;
-}
-.grapla-relationship:hover {
-  stroke-width: 6;
-  animation: movingStrokes 0.75s infinite linear;
+  &:hover {
+    stroke-width: 6;
+    animation: movingStrokes 0.75s infinite linear;
+  }
 }
 @keyframes movingStrokes {
   from {
