@@ -1,4 +1,9 @@
 /* grapla SCSS variables */
 
-$grapla-spacing:              20px;
-$grapla-relationship-color:   rgb(0, 199, 255);
+// spacing
+$grapla-spacing:                20px;
+
+// colors
+$grapla-relationship-color:     hsl(193, 100%, 50%);
+$grapla-highlight-box-color:    hsl(193, 100%, 88%);
+$grapla-highlight-text-color:   hsl(187, 99%, 27%);

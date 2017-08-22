@@ -30,9 +30,15 @@ export default {
   margin: $grapla-spacing 0 0 $grapla-spacing;
   padding: 0 $grapla-spacing $grapla-spacing 0;
   box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+  transition: 0.25s;
+  color: black;
   background: white;
   display: flex;
   flex-direction: column;
+  &:hover {
+    color: $grapla-highlight-text-color;
+    background: $grapla-highlight-box-color;
+  }
 }
 p {
   margin: $grapla-spacing 0 0 $grapla-spacing;
