@@ -52,15 +52,77 @@ export default {
             left: toElement.left - containerElement.left + containerElement.scrollLeft
           }
         };
-        // set path values
-        self.path = "M" + (rel.fromElement.left + (fromElement.width  / 2)                                                          ) +
-                    " " + (rel.fromElement.top  + (fromElement.height / 2)                                                          ) +
-                    "C" + (rel.fromElement.left + (fromElement.width  / 2) + ((rel.toElement.left - rel.fromElement.left) * (0.5))  ) +
-                    " " + (rel.fromElement.top  + (fromElement.height / 2) + ((rel.toElement.top  - rel.fromElement.top)  * (0.5))  ) +
-                    "," + (rel.toElement.left   + (toElement.width    / 2) - ((rel.toElement.left - rel.fromElement.left) * (0.5))  ) +
-                    " " + (rel.toElement.top    + (toElement.height   / 2) - ((rel.toElement.top  - rel.fromElement.top)  * (0.5))  ) +
-                    "," + (rel.toElement.left   + (toElement.width    / 2)                                                          ) +
-                    " " + (rel.toElement.top    + (toElement.height   / 2)                                                          ) ;
+        // set center x and y positions
+        rel.fromElement.centerX = rel.fromElement.left  + (fromElement.width  / 2);
+        rel.fromElement.centerY = rel.fromElement.top   + (fromElement.height / 2);
+        rel.toElement.centerX   = rel.toElement.left    + (toElement.width    / 2);
+        rel.toElement.centerY   = rel.toElement.top     + (toElement.height   / 2);
+
+        // set path from edge to edge, which edge decided by the position of the two elements
+
+        // check positional relationship between the elements
+        if (Math.abs(rel.toElement.centerX - rel.fromElement.centerX) > Math.abs(rel.toElement.centerY - rel.fromElement.centerY)) {
+          // the to element is primarily to the left or right of the from element
+
+          if(rel.fromElement.centerX < rel.toElement.centerX) {
+            // the to element is primarily to the right of the from element
+
+            // set path from the right edge of the from element to the left edge of the to element
+            self.path = "M" + (rel.fromElement.left + fromElement.width                                 ) +
+                        " " + (rel.fromElement.centerY                                                  ) +
+                        "C" + (((rel.fromElement.left + fromElement.width) + (rel.toElement.left)) / 2  ) +
+                        " " + (rel.fromElement.centerY                                                  ) +
+                        "," + (((rel.fromElement.left + fromElement.width) + (rel.toElement.left)) / 2  ) +
+                        " " + (rel.toElement.centerY                                                    ) +
+                        "," + (rel.toElement.left                                                       ) +
+                        " " + (rel.toElement.centerY                                                    ) ;
+
+          } else {
+            // the to element is primarily to the left of the from element
+
+            // set path from the left edge of the from element to the right edge of the to element
+            self.path = "M" + (rel.fromElement.left                                                     ) +
+                        " " + (rel.fromElement.centerY                                                  ) +
+                        "C" + (((rel.fromElement.left) + (rel.toElement.left + toElement.width)) / 2    ) +
+                        " " + (rel.fromElement.centerY                                                  ) +
+                        "," + (((rel.fromElement.left) + (rel.toElement.left + toElement.width)) / 2    ) +
+                        " " + (rel.toElement.centerY                                                    ) +
+                        "," + (rel.toElement.left + toElement.width                                     ) +
+                        " " + (rel.toElement.centerY                                                    ) ;
+
+          }
+        } else {
+          // the to element is primarily above or below the from element
+          
+          if(rel.fromElement.centerY < rel.toElement.centerY) {
+            // the to element is primarily below the from element
+
+            // set path from the bottom edge of the from element to the top edge of the to element
+            self.path = "M" + (rel.fromElement.centerX                                                  ) +
+                        " " + (rel.fromElement.top + fromElement.height                                 ) +
+                        "C" + (rel.fromElement.centerX                                                  ) +
+                        " " + (((rel.fromElement.top + fromElement.height) + (rel.toElement.top)) / 2   ) +
+                        "," + (rel.toElement.centerX                                                    ) +
+                        " " + (((rel.fromElement.top + fromElement.height) + (rel.toElement.top)) / 2   ) +
+                        "," + (rel.toElement.centerX                                                    ) +
+                        " " + (rel.toElement.top                                                        ) ;
+
+          } else {
+            // the to element is primarily above the from element
+
+            // set path from the top edge of the from element to the bottom edge of the to element
+            self.path = "M" + (rel.fromElement.centerX                                                  ) +
+                        " " + (rel.fromElement.top                                                      ) +
+                        "C" + (rel.fromElement.centerX                                                  ) +
+                        " " + (((rel.fromElement.top) + (rel.toElement.top + toElement.height)) / 2     ) +
+                        "," + (rel.toElement.centerX                                                    ) +
+                        " " + (((rel.fromElement.top) + (rel.toElement.top + toElement.height)) / 2     ) +
+                        "," + (rel.toElement.centerX                                                    ) +
+                        " " + (rel.toElement.top + toElement.height                                     ) ;
+
+          }
+        }
+
       });
     }
   }
