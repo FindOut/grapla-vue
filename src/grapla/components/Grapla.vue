@@ -1,8 +1,6 @@
 <template>
   <section id="grapla">
-    <div id="grapla-boxes">
-      <slot></slot>
-    </div>
+    <slot name="layout"></slot>
     <svg v-if="showSvg">
       <slot name="markers"></slot>
       <slot name="rels"></slot>
@@ -19,7 +17,7 @@ export default {
   },
   mounted() {
     // select the target node
-    var target = document.querySelector('#grapla-boxes');
+    var target = document.querySelector('#grapla-layout');
     // reference to this
     var self = this;
     // create an observer instance
@@ -39,20 +37,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../style/vars.scss";
-
 #grapla {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: scroll;
-  #grapla-boxes {
-    position: absolute;
-    padding: 0 $grapla-spacing $grapla-spacing 0;
-    display: flex;
-    flex-wrap: wrap;
-    background: #eee;
-  }
   svg {
     position: absolute;
     width: 10px;

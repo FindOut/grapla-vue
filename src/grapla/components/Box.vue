@@ -1,12 +1,13 @@
 <template>
   <div :class="['grapla-box', data.id + '']">
     <p>{{data.id}}. {{data.text}}</p>
-    <slot></slot>
-    <box
-      v-for="box in data.children"
-      :data="box"
-      :key="box.id">
-    </box>
+    <slot>
+      <box
+        v-for="box in data.children"
+        :data="box"
+        :key="box.id">
+      </box>
+    </slot>
   </div>
 </template>
 

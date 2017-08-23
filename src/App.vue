@@ -7,14 +7,14 @@
       <section id="app-section-left"></section>
       <section id="app-section-center">
         <grapla>
-          <box
-            v-for="box in grapla.boxes"
-            :data="box"
-            :key="box.id">
-          </box>
-          <relationship-marker
-            slot="markers">
-          </relationship-marker>
+          <flex-layout slot="layout">
+            <box
+              v-for="box in grapla.boxes"
+              :data="box"
+              :key="box.id">
+            </box>
+          </flex-layout>
+          <relationship-marker slot="markers"></relationship-marker>
           <relationship
             v-for="(relationship, index) in grapla.relationships"
             :data="relationship"
@@ -31,6 +31,7 @@
 
 <script>
 import grapla from './grapla/components/Grapla.vue'
+import flexLayout from './grapla/components/FlexLayout.vue'
 import box from './grapla/components/Box.vue'
 import relationship from './grapla/components/Relationship.vue'
 import relationshipMarker from './grapla/components/RelationshipMarker.vue'
@@ -46,6 +47,7 @@ export default {
   },
   components: {
     grapla,
+    flexLayout,
     box,
     relationship,
     relationshipMarker
