@@ -1,10 +1,10 @@
 import $ from 'jquery'
 
-// creates and returns a relationship path between two grapla boxes, takes two ids as arguments
+// creates and returns a relationship path between two grapla elements, takes two ids as arguments
 export default function createRelationshipPath(from, to) {
   // get elements from dom
-  var fromElement = $('.grapla-box.' + from)[0];
-  var toElement = $('.grapla-box.' + to)[0];
+  var fromElement = $('#grapla-layout .' + from)[0];
+  var toElement = $('#grapla-layout .' + to)[0];
   var containerElement = $('#grapla')[0];
   // end function if elements can't be found
   if (!fromElement || !toElement || !containerElement) return;
