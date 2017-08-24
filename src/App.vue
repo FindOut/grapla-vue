@@ -9,14 +9,9 @@
         <grapla>
           <flex-layout slot="layout">
             <box
-              v-for="box in grapla.boxes"
+              v-for="box in grapla.nodes"
               :data="box"
               :key="box.id">
-              <ball
-                v-for="ball in box.children"
-                :data="ball"
-                :key="ball.id">
-              </ball>
             </box>
           </flex-layout>
           <relationship-marker slot="markers"></relationship-marker>

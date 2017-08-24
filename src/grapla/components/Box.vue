@@ -2,11 +2,12 @@
   <div :class="['grapla-box', data.id + '']">
     <p>{{data.id}}. {{data.text}}</p>
     <slot>
-      <box
-        v-for="box in data.children"
-        :data="box"
-        :key="box.id">
-      </box>
+      <component
+        v-for="comp in data.children"
+        :is="comp.type"
+        :data="comp"
+        :key="comp.id">
+      </component>
     </slot>
   </div>
 </template>
@@ -16,10 +17,15 @@ export default {
   props: {
     data: Object
   },
-  beforeCreate: function () {
-    // this solves the 'circular references between components' issue
-    // which is caused by using recursive components
-    this.$options.components.box = require('./Box.vue');
+  created: function () {
+    // go through all child components
+    for(var comp of this.data.children) {
+      // check if child component has not been imported
+      if(!this.$options.components[comp.type]) {
+        // import correct component based on type
+        this.$options.components[comp.type] = require('./' + comp.type + '.vue');
+      }
+    }
   }
 }
 </script>
@@ -28,21 +34,20 @@ export default {
 @import "../style/vars.scss";
 
 .grapla-box {
+  overflow: auto;
   margin: $grapla-spacing 0 0 $grapla-spacing;
   padding: 0 $grapla-spacing $grapla-spacing 0;
   box-shadow: 0 10px 35px rgba(0,0,0,0.1);
   transition: 0.25s;
   color: black;
   background: white;
-  display: flex;
-  flex-direction: column;
   &:hover {
     color: $grapla-highlight-text-color;
     background: $grapla-highlight-box-color;
   }
   p {
     margin: $grapla-spacing 0 0 $grapla-spacing;
-    display: inline-block;
+    display: block;
   }
 }
 </style>

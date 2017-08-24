@@ -13,10 +13,10 @@ const store = new Vuex.Store({
     createRandomGraplaData(state) {
       // empty data to begin with
       state.grapla = {
-        boxes: [],
+        nodes: [],
         relationships: []
       };
-      // possible text for boxes
+      // possible text for nodes
       var text = [
         'hello grapla',
         'booooox',
@@ -28,28 +28,34 @@ const store = new Vuex.Store({
         'really? more boxes?',
         'ok fam whats with the boxes'
       ];
-      // next box id
+      // possible types for nodes
+      var types = [
+        'Box',
+        'Ball'
+      ];
+      // next node id
       var id = 0;
-      // number of top level boxes
-      var boxCount = 20 + Math.floor(Math.random() * 21);
-      // populate with boxes
-      for (var i = 0; i < boxCount; i++) {
-        // create top level box
-        state.grapla.boxes.push({
+      // number of top level nodes
+      var nodeCount = 20 + Math.floor(Math.random() * 21);
+      // populate with nodes
+      for (var i = 0; i < nodeCount; i++) {
+        // create top level node
+        state.grapla.nodes.push({
           id,
           text: text[Math.floor(Math.random() * text.length)],
           children: []
         });
         // increment id
         id++;
-        // number of child boxes
+        // number of child nodes
         var childBoxCount = Math.floor(Math.random() * 4);
-        // populate with child boxes
+        // populate with child nodes
         for (var ii = 0; ii < childBoxCount; ii++) {
-          // create child box
-          state.grapla.boxes[i].children.push({
+          // create child node
+          state.grapla.nodes[i].children.push({
             id,
             text: text[Math.floor(Math.random() * text.length)],
+            type: types[Math.floor(Math.random() * types.length)],
             children: []
           });
           // increment id
@@ -57,7 +63,7 @@ const store = new Vuex.Store({
         }
       }
       // number of relationships
-      var relationshipCount = 20 + Math.floor(Math.random() * 21);
+      var relationshipCount = 10 + Math.floor(Math.random() * 11);
       // populate with relationships
       for (var i = 0; i < relationshipCount; i++) {
         // create relationship
