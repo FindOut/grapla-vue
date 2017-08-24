@@ -7,11 +7,11 @@
       <section id="app-section-left"></section>
       <section id="app-section-center">
         <grapla>
-          <box
-            v-for="box in grapla.nodes"
-            :data="box"
-            :key="box.id">
-          </box>
+          <dynamic-component
+            v-for="node in grapla.nodes"
+            :data="node"
+            :key="node.id">
+          </dynamic-component>
           <relationship
             v-for="(relationship, index) in grapla.relationships"
             :data="relationship"
@@ -28,6 +28,7 @@
 
 <script>
 import grapla from './grapla/components/Grapla.vue'
+import dynamicComponent from './grapla/components/DynamicComponent.vue'
 import flexLayout from './grapla/components/FlexLayout.vue'
 import box from './grapla/components/Box.vue'
 import ball from './grapla/components/Ball.vue'
@@ -45,6 +46,7 @@ export default {
   },
   components: {
     grapla,
+    dynamicComponent,
     flexLayout,
     box,
     ball,

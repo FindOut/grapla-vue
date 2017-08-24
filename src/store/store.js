@@ -43,14 +43,17 @@ const store = new Vuex.Store({
         state.grapla.nodes.push({
           id,
           text: text[Math.floor(Math.random() * text.length)],
+          type: types[Math.floor(Math.random() * types.length)],
           children: []
         });
         // increment id
         id++;
+        // don't create child nodes for balls
+        if (state.grapla.nodes[i].type == 'Ball') continue;
         // number of child nodes
-        var childBoxCount = Math.floor(Math.random() * 4);
+        var childNodeCount = Math.floor(Math.random() * 4);
         // populate with child nodes
-        for (var ii = 0; ii < childBoxCount; ii++) {
+        for (var ii = 0; ii < childNodeCount; ii++) {
           // create child node
           state.grapla.nodes[i].children.push({
             id,
