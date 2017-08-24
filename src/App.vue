@@ -7,14 +7,11 @@
       <section id="app-section-left"></section>
       <section id="app-section-center">
         <grapla>
-          <flex-layout slot="layout">
-            <box
-              v-for="box in grapla.nodes"
-              :data="box"
-              :key="box.id">
-            </box>
-          </flex-layout>
-          <relationship-marker slot="markers"></relationship-marker>
+          <box
+            v-for="box in grapla.nodes"
+            :data="box"
+            :key="box.id">
+          </box>
           <relationship
             v-for="(relationship, index) in grapla.relationships"
             :data="relationship"

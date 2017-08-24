@@ -1,19 +1,32 @@
 <template>
   <section id="grapla">
-    <slot name="layout"></slot>
+    <slot name="layout">
+      <flex-layout>
+        <slot></slot>
+      </flex-layout>
+    </slot>
     <svg v-if="showSvg">
-      <slot name="markers"></slot>
+      <slot name="markers">
+        <relationship-marker></relationship-marker>
+      </slot>
       <slot name="rels"></slot>
     </svg>
   </section>
 </template>
 
 <script>
+import flexLayout from './FlexLayout.vue'
+import relationshipMarker from './RelationshipMarker.vue'
+
 export default {
   data: function () {
     return {
       showSvg: true
     }
+  },
+  components: {
+    flexLayout,
+    relationshipMarker
   },
   mounted() {
     // select the target node
