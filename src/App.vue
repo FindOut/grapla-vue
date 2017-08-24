@@ -12,6 +12,11 @@
               v-for="box in grapla.boxes"
               :data="box"
               :key="box.id">
+              <ball
+                v-for="ball in box.children"
+                :data="ball"
+                :key="ball.id">
+              </ball>
             </box>
           </flex-layout>
           <relationship-marker slot="markers"></relationship-marker>
@@ -33,6 +38,7 @@
 import grapla from './grapla/components/Grapla.vue'
 import flexLayout from './grapla/components/FlexLayout.vue'
 import box from './grapla/components/Box.vue'
+import ball from './grapla/components/Ball.vue'
 import relationship from './grapla/components/Relationship.vue'
 import relationshipMarker from './grapla/components/RelationshipMarker.vue'
 import {mapState} from 'vuex'
@@ -49,6 +55,7 @@ export default {
     grapla,
     flexLayout,
     box,
+    ball,
     relationship,
     relationshipMarker
   },

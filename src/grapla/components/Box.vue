@@ -40,8 +40,9 @@ export default {
     color: $grapla-highlight-text-color;
     background: $grapla-highlight-box-color;
   }
-}
-p {
-  margin: $grapla-spacing 0 0 $grapla-spacing;
+  p {
+    margin: $grapla-spacing 0 0 $grapla-spacing;
+    display: inline-block;
+  }
 }
 </style>

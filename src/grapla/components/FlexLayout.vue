@@ -17,6 +17,5 @@ export default {
   padding: 0 $grapla-spacing $grapla-spacing 0;
   display: flex;
   flex-wrap: wrap;
-  background: #eee;
 }
 </style>
