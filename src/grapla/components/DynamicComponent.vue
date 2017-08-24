@@ -1,5 +1,7 @@
 <template>
-  <component :is="data.type" :data="data"></component>
+  <component :is="data.type" :data="data">
+    <slot></slot>
+  </component>
 </template>
 
 <script>
