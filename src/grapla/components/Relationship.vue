@@ -24,6 +24,11 @@ export default {
   },
   methods: {
     setRelationshipPath() {
+      // set relationship path to value sent in as property if it exists
+      if (this.data.path) {
+        this.path = this.data.path;
+        return;
+      }
       // reference to this
       var self = this;
       // wait until render is done
