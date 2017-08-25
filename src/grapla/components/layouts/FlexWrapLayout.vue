@@ -10,7 +10,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../style/vars.scss";
+@import "../../style/vars.scss";
 
 .grapla-flex-wrap-layout {
   padding: 0 $grapla-spacing $grapla-spacing 0;

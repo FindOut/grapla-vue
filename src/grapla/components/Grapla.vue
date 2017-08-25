@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import flexWrapLayout from './FlexWrapLayout.vue'
-import relationshipMarker from './RelationshipMarker.vue'
+import flexWrapLayout from './layouts/FlexWrapLayout.vue'
+import relationshipMarker from './relationships/RelationshipMarker.vue'
 
 export default {
   data: function () {

@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../style/vars.scss";
+@import "../../style/vars.scss";
 
 .grapla-ball {
   display: inline-block;

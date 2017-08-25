@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../style/vars.scss";
+@import "../../style/vars.scss";
 
 #grapla-relationship-arrow {
   overflow: visible;

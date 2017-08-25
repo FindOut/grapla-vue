@@ -28,12 +28,12 @@
 
 <script>
 import grapla from './grapla/components/Grapla.vue'
-import dynamicComponent from './grapla/components/DynamicComponent.vue'
-import flexWrapLayout from './grapla/components/FlexWrapLayout.vue'
-import box from './grapla/components/Box.vue'
-import ball from './grapla/components/Ball.vue'
-import relationship from './grapla/components/Relationship.vue'
-import relationshipMarker from './grapla/components/RelationshipMarker.vue'
+import dynamicComponent from './grapla/components/nodes/DynamicComponent.vue'
+import flexWrapLayout from './grapla/components/layouts/FlexWrapLayout.vue'
+import box from './grapla/components/nodes/Box.vue'
+import ball from './grapla/components/nodes/Ball.vue'
+import relationship from './grapla/components/relationships/Relationship.vue'
+import relationshipMarker from './grapla/components/relationships/RelationshipMarker.vue'
 import {mapState} from 'vuex'
 import store from './store/store'
 

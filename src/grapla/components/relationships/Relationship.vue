@@ -5,7 +5,7 @@
 <script>
 import Vue from 'vue'
 import _ from 'lodash'
-import createRelationshipPath from '../functions/createRelationshipPath'
+import createRelationshipPath from '../../functions/createRelationshipPath'
 
 export default {
   props: {
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../style/vars.scss";
+@import "../../style/vars.scss";
 
 .grapla-relationship {
   fill: none;
