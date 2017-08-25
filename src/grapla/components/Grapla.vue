@@ -1,11 +1,13 @@
 <template>
   <section id="grapla">
-    <slot name="layout">
-      <flex-layout>
-        <slot></slot>
-      </flex-layout>
-    </slot>
-    <svg v-if="showSvg">
+    <section id="grapla-nodes">
+      <slot name="layout">
+        <flex-wrap-layout>
+          <slot></slot>
+        </flex-wrap-layout>
+      </slot>
+    </section>
+    <svg id="grapla-relationships" v-if="showSvg">
       <slot name="markers">
         <relationship-marker></relationship-marker>
       </slot>
@@ -15,7 +17,7 @@
 </template>
 
 <script>
-import flexLayout from './FlexLayout.vue'
+import flexWrapLayout from './FlexWrapLayout.vue'
 import relationshipMarker from './RelationshipMarker.vue'
 
 export default {
@@ -25,12 +27,12 @@ export default {
     }
   },
   components: {
-    flexLayout,
+    flexWrapLayout,
     relationshipMarker
   },
   mounted() {
     // select the target node
-    var target = document.querySelector('#grapla-layout');
+    var target = document.querySelector('.grapla-layout');
     // reference to this
     var self = this;
     // create an observer instance
@@ -55,9 +57,13 @@ export default {
   width: 100%;
   height: 100%;
   overflow: scroll;
-  background: #eee;
-  svg {
+  #grapla-nodes {
+    background: #eee;
+  }
+  #grapla-relationships {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 10px;
     height: 10px;
     overflow: visible;

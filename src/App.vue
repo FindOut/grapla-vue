@@ -29,7 +29,7 @@
 <script>
 import grapla from './grapla/components/Grapla.vue'
 import dynamicComponent from './grapla/components/DynamicComponent.vue'
-import flexLayout from './grapla/components/FlexLayout.vue'
+import flexWrapLayout from './grapla/components/FlexWrapLayout.vue'
 import box from './grapla/components/Box.vue'
 import ball from './grapla/components/Ball.vue'
 import relationship from './grapla/components/Relationship.vue'
@@ -47,7 +47,7 @@ export default {
   components: {
     grapla,
     dynamicComponent,
-    flexLayout,
+    flexWrapLayout,
     box,
     ball,
     relationship,

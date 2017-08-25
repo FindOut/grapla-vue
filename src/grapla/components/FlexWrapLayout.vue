@@ -1,5 +1,5 @@
 <template>
-  <div id="grapla-layout">
+  <div class="grapla-layout grapla-flex-wrap-layout">
     <slot></slot>
   </div>
 </template>
@@ -12,8 +12,7 @@ export default {
 <style lang="scss" scoped>
 @import "../style/vars.scss";
 
-#grapla-layout {
-  position: absolute;
+.grapla-flex-wrap-layout {
   padding: 0 $grapla-spacing $grapla-spacing 0;
   display: flex;
   flex-wrap: wrap;
