@@ -39,14 +39,7 @@
 </template>
 
 <script>
-import grapla from './grapla/components/Grapla.vue'
-import dynamicComponent from './grapla/components/nodes/DynamicComponent.vue'
-import flexWrapLayout from './grapla/components/layouts/FlexWrapLayout.vue'
-import coordinatesLayout from './grapla/components/layouts/CoordinatesLayout.vue'
-import box from './grapla/components/nodes/Box.vue'
-import ball from './grapla/components/nodes/Ball.vue'
-import relationship from './grapla/components/relationships/Relationship.vue'
-import relationshipMarker from './grapla/components/relationships/RelationshipMarker.vue'
+import graplaComponents from './grapla/components/index'
 import {mapState} from 'vuex'
 import store from './store/store'
 
@@ -58,14 +51,7 @@ export default {
     ])
   },
   components: {
-    grapla,
-    dynamicComponent,
-    flexWrapLayout,
-    coordinatesLayout,
-    box,
-    ball,
-    relationship,
-    relationshipMarker
+    ...graplaComponents
   },
   methods: {
     createRandomGraplaData() {
