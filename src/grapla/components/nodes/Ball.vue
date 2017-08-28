@@ -1,5 +1,5 @@
 <template>
-  <div :class="['grapla-ball', data.id + '']">
+  <div :class="['grapla-ball', 'grapla-node', data.id + '']">
     <p>{{data.id}}</p>
   </div>
 </template>

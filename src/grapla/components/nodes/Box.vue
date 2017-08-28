@@ -1,5 +1,5 @@
 <template>
-  <div :class="['grapla-box', data.id + '']">
+  <div :class="['grapla-box', 'grapla-node', data.id + '']">
     <p>{{data.id}}. {{data.text}}</p>
     <slot>
       <dynamic-component

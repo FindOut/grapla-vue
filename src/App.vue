@@ -7,11 +7,23 @@
       <section id="app-section-left"></section>
       <section id="app-section-center">
         <grapla>
-          <dynamic-component
-            v-for="node in grapla.nodes"
-            :data="node"
-            :key="node.id">
-          </dynamic-component>
+          <coordinates-layout :data="{height: 600}" slot="layout">
+            <box :data="{id: 99, text: 'test', x: 300, y: 400, width: 200, height: 100}"></box>
+            <ball :data="{id: 100, x: 700, y: 300, width: 150, height: 150}"></ball>
+            <box :data="{id: 101, text: 'test test', x: 300, y: 150, width: 100, height: 200}">
+              <ball :data="{id: 102}"></ball>
+            </box>
+          </coordinates-layout>
+          <relationship :data="{ from: 99, to: 100 }" slot="rels"></relationship>
+          <relationship :data="{ from: 100, to: 102 }" slot="rels"></relationship>
+          <relationship :data="{ path: 'M200 400,C100 400,100 150,250 150' }" slot="rels"></relationship>
+          <flex-wrap-layout slot="layout">
+            <dynamic-component
+              v-for="node in grapla.nodes"
+              :data="node"
+              :key="node.id">
+            </dynamic-component>
+          </flex-wrap-layout>
           <relationship
             v-for="(relationship, index) in grapla.relationships"
             :data="relationship"
@@ -30,6 +42,7 @@
 import grapla from './grapla/components/Grapla.vue'
 import dynamicComponent from './grapla/components/nodes/DynamicComponent.vue'
 import flexWrapLayout from './grapla/components/layouts/FlexWrapLayout.vue'
+import coordinatesLayout from './grapla/components/layouts/CoordinatesLayout.vue'
 import box from './grapla/components/nodes/Box.vue'
 import ball from './grapla/components/nodes/Ball.vue'
 import relationship from './grapla/components/relationships/Relationship.vue'
@@ -48,6 +61,7 @@ export default {
     grapla,
     dynamicComponent,
     flexWrapLayout,
+    coordinatesLayout,
     box,
     ball,
     relationship,

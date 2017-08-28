@@ -19,6 +19,7 @@
 <script>
 import flexWrapLayout from './layouts/FlexWrapLayout.vue'
 import relationshipMarker from './relationships/RelationshipMarker.vue'
+import $ from 'jquery'
 
 export default {
   data: function () {
@@ -31,8 +32,6 @@ export default {
     relationshipMarker
   },
   mounted() {
-    // select the target node
-    var target = document.querySelector('.grapla-layout');
     // reference to this
     var self = this;
     // create an observer instance
@@ -43,10 +42,13 @@ export default {
         self.showSvg = true;
       });
     });
-    // configuration of the observer:
-    var config = { attributes: true, childList: true, characterData: true }
-    // pass in the target node, as well as the observer options
-    observer.observe(target, config);
+    // configuration of the observer
+    var config = { attributes: true, childList: true, characterData: true };
+    // go through all grapla layout components
+    $('.grapla-layout').each(function() {
+      // observe the grapla layout component
+      observer.observe($(this)[0], config);
+    })
   }
 }
 </script>
@@ -56,7 +58,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   #grapla-nodes {
     background: #eee;
   }
