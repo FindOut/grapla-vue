@@ -1,0 +1,15 @@
+{
+  "name": "grapla-vue",
+  "version": "0.0.3",
+  "description": "Grafisk Plattform för FindOuts modell-appar (for Vue.js)",
+  "main": "./components/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FindOut/grapla-vue"
+  },
+  "author": "Lee Comstock @ FindOut Technologies",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/FindOut/grapla-vue/issues"
+  }
+}

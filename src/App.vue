@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import graplaComponents from './grapla/components/index'
+import grapla from 'grapla-vue'
 import {mapState} from 'vuex'
 import store from './store/store'
 
@@ -51,7 +51,7 @@ export default {
     ])
   },
   components: {
-    ...graplaComponents
+    ...grapla.components
   },
   methods: {
     createRandomGraplaData() {
