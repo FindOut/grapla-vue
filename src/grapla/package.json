@@ -5,7 +5,7 @@
   "main": "./components/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FindOut/grapla-vue"
+    "url": "https://github.com/FindOut/grapla-vue/tree/master/src/grapla"
   },
   "dependencies": {
     "jquery": "^3.2.1",
