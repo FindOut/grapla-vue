@@ -1,6 +1,6 @@
 {
   "name": "grapla-vue",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Grafisk Plattform för FindOuts modell-appar (for Vue.js)",
   "main": "./components/index.js",
   "repository": {
@@ -10,7 +10,7 @@
   "dependencies": {
     "jquery": "^3.2.1",
     "vue": "^2.3.3",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
