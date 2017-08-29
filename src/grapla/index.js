@@ -12,7 +12,7 @@ import grapla from './components/Grapla.vue'
 import createRelationshipPath from './functions/createRelationshipPath'
 
 // export as one object
-export default {
+module.exports = {
   components: {
     coordinatesLayout,
     flexWrapLayout,
