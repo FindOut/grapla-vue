@@ -2,9 +2,9 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: (process.env.NODE_ENV === 'publish' ? './src/grapla/index.js' : './src/main.js'),
+  entry: (process.env.NODE_ENV === 'production' ? './src/grapla/index.js' : './src/test-app/main.js'),
   output: {
-    path: path.resolve(__dirname, (process.env.NODE_ENV === 'publish' ? './src/grapla/dist' : './dist')),
+    path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
     filename: 'build.js'
   },

@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import grapla from './grapla/index'
+import grapla from '../grapla/index'
 import {mapState} from 'vuex'
 import store from './store/store'
 
