@@ -11,19 +11,17 @@ import grapla from './components/Grapla.vue'
 // import functions
 import createRelationshipPath from './functions/createRelationshipPath'
 
-// export as one object
-module.exports = {
-  components: {
-    coordinatesLayout,
-    flexWrapLayout,
-    ball,
-    box,
-    dynamicComponent,
-    relationship,
-    relationshipMarker,
-    grapla
-  },
-  functions: {
-    createRelationshipPath
-  }
+export const components = {
+  coordinatesLayout,
+  flexWrapLayout,
+  ball,
+  box,
+  dynamicComponent,
+  relationship,
+  relationshipMarker,
+  grapla
+}
+
+export const functions = {
+  createRelationshipPath
 }
