@@ -7,7 +7,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "grapla-vue": "git+https://773a800c987f6750cdfc70e00007d5346ad2a60e:x-oauth-basic@github.com/FindOut/grapla-vue.git",
+    "grapla-vue": "https://github.com/FindOut/grapla-vue.git",
     "jquery": "^3.2.1",
     "vue": "^2.3.3",
     "vuex": "^2.3.1",

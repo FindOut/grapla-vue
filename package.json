@@ -1,9 +1,8 @@
 {
   "name": "grapla-vue",
   "description": "Grafisk Plattform för FindOuts modell-appar",
-  "version": "0.1.0",
-  "private": true,
-  "main": "./testGitHubDependency.js",
+  "version": "0.0.15",
+  "main": "./dist/build.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
