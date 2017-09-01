@@ -2,6 +2,8 @@
 
 > Grafisk Plattform för FindOuts modell-appar (for Vue.js)
 
+![screenshot grapla test app](docs/screenshot.png)
+
 ## Introduction
 
 If you want to git clone this project and run a premade Grapla-Vue test project, check README in the /src folder
