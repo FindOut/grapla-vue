@@ -39,9 +39,12 @@
 </template>
 
 <script>
-import grapla from '../grapla/index'
+import grapla from './grapla/index'
+// import grapla from 'grapla-vue'
 import {mapState} from 'vuex'
 import store from './store/store'
+
+console.log(grapla);
 
 export default {
   name: 'app',
