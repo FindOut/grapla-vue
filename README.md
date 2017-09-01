@@ -4,7 +4,7 @@
 
 ## Introduction
 
-If you want to git clone this project and run a Grapla-Vue test project, check README in the /src folder
+If you want to git clone this project and run a premade Grapla-Vue test project, check README in the /src folder
 
 The following is for using Grapla-Vue as a github dependency in your own project
 
@@ -26,6 +26,8 @@ npm install grapla-vue
 
 ## Import
 
+ES6 with vue-loader:
+
 ```bash
 <script>
 import grapla from 'grapla-vue'
@@ -39,6 +41,12 @@ export default {
   }
 }
 </script>
+```
+
+ES5:
+
+```bash
+var grapla = require("grapla-vue");
 ```
 
 ## Usage
@@ -100,16 +108,38 @@ Example HTML:
 # main grapla component
 <grapla>
 
-  # coordinatesLayout component for absolute positioning child elements
-  # set x y width and height on child elements
-  <coordinates-layout :data="{width: 900, height: 600}" slot="layout">
-    <box :data="{id: 99, text: 'test', x: 300, y: 400, width: 200, height: 100}"></box>
-    <ball :data="{id: 100, x: 700, y: 300, width: 150, height: 150}"></ball>
-    <box :data="{id: 101, text: 'test test', x: 300, y: 150, width: 100, height: 200}">
-      # ball component inside box component
-      <ball :data="{id: 102}"></ball>
+  # flexWrapLayout component for positioning child elements according to flex-wrap flow
+  <flex-wrap-layout slot="layout">
+    # v-for looping out nodes as boxes based on data array
+    <box
+      v-for="node in data.nodes"
+      :data="node"
+      :key="node.id">
+      # v-for looping out child nodes as balls based on children array
+      <ball
+        v-for="childNode in node.children"
+        :data="childNode"
+        :key="childNode.id">  
+      </ball>
     </box>
-  </coordinates-layout>
+  </flex-wrap-layout>
+
+  # v-for looping out relationships based on data array
+  <relationship
+    v-for="(relationship, index) in data.relationships"
+    :data="relationship"
+    :key="index"
+    slot="rels">
+  </relationship>
+
+</grapla>
+```
+
+Or:
+
+```bash
+# main grapla component
+<grapla>
 
   # flexWrapLayout component for positioning child elements according to flex-wrap flow
   <flex-wrap-layout slot="layout">
@@ -119,12 +149,8 @@ Example HTML:
       v-for="node in data.nodes"
       :data="node"
       :key="node.id">
-      # v-for looping out child nodes based on children array
-      <dynamic-component
-        v-for="childNode in node.children"
-        :data="childNode"
-        :key="childNode.id">  
-      </dynamic-component>
+      # if the node is a box, it will generate child components based on it's children array
+      # the ball component cannot have child components
     </dynamic-component>
   </flex-wrap-layout>
 
@@ -136,7 +162,27 @@ Example HTML:
     slot="rels">
   </relationship>
 
-  # relationship components that draws a line between two elements based on ids
+</grapla>
+```
+
+Or:
+
+```bash
+# main grapla component
+<grapla>
+
+  # coordinatesLayout component for absolute positioning child elements
+  # set x y width and height on child elements
+  <coordinates-layout :data="{width: 900, height: 600}" slot="layout">
+    <box :data="{id: 99, text: 'test', x: 300, y: 400, width: 200, height: 100}"></box>
+    <ball :data="{id: 100, x: 700, y: 300, width: 150, height: 150}"></ball>
+    <box :data="{id: 101, text: 'test test', x: 300, y: 150, width: 100, height: 200}">
+      # ball component inside box component
+      <ball :data="{id: 102}"></ball>
+    </box>
+  </coordinates-layout>
+
+  # relationship components that draw a line between two elements based on ids
   <relationship :data="{ from: 99, to: 100 }" slot="rels"></relationship>
   <relationship :data="{ from: 100, to: 102 }" slot="rels"></relationship>
   # relationship component can also take a finished svg path d string
