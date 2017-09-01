@@ -6,7 +6,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    library: 'grapla',
+    libraryTarget: 'commonjs2',
+    filename: 'grapla.js'
   },
   module: {
     rules: [

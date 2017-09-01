@@ -2,10 +2,26 @@
 
 > Grafisk Plattform för FindOuts modell-appar (for Vue.js)
 
+## Introduction
+
+If you want to git clone this project and run a Grapla-Vue test project, check README in the /src folder
+
+The following is for using Grapla-Vue as a github dependency in your own project
+
 ## Install
 
+In your package.json file
+
 ```bash
-npm install grapla-vue --save
+"dependencies": {
+  "grapla-vue": "https://github.com/FindOut/grapla-vue.git"
+}
+```
+
+Then run the command:
+
+```bash
+npm install grapla-vue
 ```
 
 ## Import
