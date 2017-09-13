@@ -26,12 +26,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../../style/vars.scss";
 
 .grapla-coordinates-layout {
   background: #ddd;
-  & > * {
+  > * {
     position: absolute;
     box-sizing: border-box;
     margin: 0;
