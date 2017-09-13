@@ -17,8 +17,8 @@ export default {
       var props = comp._props.data;
       $(comp.$el).css({
         position: 'absolute',
-        box-sizing: 'border-box',
-        margin: 0,
+        boxSizing: 'border-box',
+        margin: '0',
         left: props.x - (props.width / 2),
         top: props.y - (props.height / 2),
         width: props.width,
