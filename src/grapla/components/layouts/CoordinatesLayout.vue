@@ -31,7 +31,7 @@ export default {
 
 .grapla-coordinates-layout {
   background: #ddd;
-  > * {
+  & > * {
     position: absolute;
     box-sizing: border-box;
     margin: 0;
