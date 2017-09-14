@@ -209,3 +209,35 @@ Make sure to set 'slot' attribute on layout and relationship components for grap
   <relationship :data="{ from: 0, to: 2 }" slot="rels"></relationship>
 </grapla>
 ```
+
+## Using Custom Components
+
+You can use your own custom components as nodes instead of Grapla's own Box and Ball components. If you do that, here are some requirements for it to work: 
+
+- If you're using relationship components with 'from' and 'to' properties, your custom component needs to have these values applied to them as a CSS class. For example, if you have a relationship with 'from' value 'AMP-7' and 'to' value 'AMP-11', two of the custom components you're using as nodes need to have the CSS classes 'AMP-7' and 'AMP-11' respectively, or else the relationship component won't know which elements to draw the relationship between. 
+
+Example:
+
+```bash
+# main grapla component
+<grapla>
+  <custom-component :data="{id: 0}"></custom-component>
+  <custom-component :data="{id: 1}"></custom-component>
+  <relationship :data="{ from: 0, to: 1 }" slot="rels"></relationship>
+</grapla>
+
+#custom component
+<template>
+  <div :class="data.id">
+    // my custom component
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    data: Object
+  }
+}
+</script>
+```
