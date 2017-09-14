@@ -16,9 +16,9 @@ export default {
     for (var comp of this.$children) {
       var props = comp._props.data;
       $(comp.$el).css({
-        left: props.x - (props.width / 2),
-        top: props.y - (props.height / 2),
-        width: props.width,
+        left:   props.x,
+        top:    props.y,
+        width:  props.width,
         height: props.height
       });
     }
@@ -27,12 +27,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/vars.scss";
-
 .grapla-coordinates-layout {
   background: #ddd;
-  > .grapla-node {
+  > * {
     position: absolute;
+    transform: translate(-50%,-50%);
     box-sizing: border-box;
     margin: 0;
   }
