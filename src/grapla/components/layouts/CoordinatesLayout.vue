@@ -16,9 +16,6 @@ export default {
     for (var comp of this.$children) {
       var props = comp._props.data;
       $(comp.$el).css({
-        position: 'absolute',
-        boxSizing: 'border-box',
-        margin: '0',
         left: props.x - (props.width / 2),
         top: props.y - (props.height / 2),
         width: props.width,
@@ -29,8 +26,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .grapla-coordinates-layout {
   background: #ddd;
+  > * {
+    position: absolute;
+    box-sizing: border-box;
+    margin: 0;
+  }
 }
 </style>
