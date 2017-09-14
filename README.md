@@ -193,6 +193,8 @@ Or:
 </grapla>
 ```
 
+## Slot Attribute
+
 Make sure to set 'slot' attribute on layout and relationship components for grapla to know how to use the component
 
 ```bash
@@ -226,10 +228,10 @@ Example:
   <relationship :data="{ from: 0, to: 1 }" slot="rels"></relationship>
 </grapla>
 
-#custom component
+# custom component
 <template>
   <div :class="data.id">
-    // my custom component
+    # my custom component
   </div>
 </template>
 
