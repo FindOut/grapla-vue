@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.grapla-coordinates-layout {
+.grapla-layout.grapla-coordinates-layout {
   background: #ddd;
   > * {
     position: absolute;
