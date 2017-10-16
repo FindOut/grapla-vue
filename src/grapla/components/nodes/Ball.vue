@@ -1,6 +1,6 @@
 <template>
   <div :class="['grapla-ball', 'grapla-node', data.id + '']">
-    <p>{{data.id}}</p>
+    <p class="grapla-ball-id">{{data.id}}</p>
   </div>
 </template>
 

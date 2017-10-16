@@ -1,6 +1,9 @@
 <template>
   <div :class="['grapla-box', 'grapla-node', data.id + '']">
-    <p>{{data.id}}. {{data.text}}</p>
+    <div class="grapla-box-info">
+      <p class="grapla-box-id">{{data.id}}. </p>
+      <p class="grapla-box-text">{{data.text}}</p>
+    </div>
     <slot>
       <dynamic-component
         v-for="comp in data.children"
@@ -39,9 +42,13 @@ export default {
     color: $grapla-highlight-text-color;
     background: $grapla-highlight-box-color;
   }
-  p {
+  .grapla-box-info {
     margin: $grapla-spacing 0 0 $grapla-spacing;
     display: block;
+    p {
+      display: inline-block;
+      margin: 0;
+    }
   }
 }
 </style>
